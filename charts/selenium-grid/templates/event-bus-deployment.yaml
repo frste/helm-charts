@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ template "selenium.event-bus.fullname" . }}
+  labels:
+    app: {{ template "selenium.event-bus.fullname" . }}
+    name: {{ template "selenium.event-bus.fullname" . }}
+    component: {{ .Values.component }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ template "selenium.event-bus.fullname" . }}
+  template:
+    metadata:
+      labels:
+        app: {{ template "selenium.event-bus.fullname" . }}
+        name: {{ template "selenium.event-bus.fullname" . }}
+        component: {{ .Values.component }}
+    spec:
+      containers:
+        - name: {{ template "selenium.event-bus.fullname" . }}
+          image: "{{ .Values.eventBus.repository }}:{{ .Values.eventBus.tag }}"
+          ports:
+            - containerPort: 4442
+              protocol: TCP
+            - containerPort: 4443
+              protocol: TCP
+            - containerPort: 5557
+              protocol: TCP

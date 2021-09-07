@@ -1,0 +1,17 @@
+{{- if .Values.chrome.enabled }}
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ template "selenium.chrome.fullname" . }}
+  labels:
+    name: {{ template "selenium.chrome.fullname" . }}
+    component: {{ .Values.component }}
+spec:
+  selector:
+    app: {{ template "selenium.chrome.fullname" . }}
+  ports:
+    - name: port1
+      protocol: TCP
+      port: 6900
+      targetPort: 5900
+{{- end }}

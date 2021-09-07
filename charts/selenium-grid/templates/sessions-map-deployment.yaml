@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ template "selenium.sessions.fullname" . }}
+  labels:
+    app: {{ template "selenium.sessions.fullname" . }}
+    name: {{ template "selenium.sessions.fullname" . }}
+    component: {{ .Values.component }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ template "selenium.sessions.fullname" . }}
+  template:
+    metadata:
+      labels:
+        app: {{ template "selenium.sessions.fullname" . }}
+        name: {{ template "selenium.sessions.fullname" . }}
+        component: {{ .Values.component }}
+    spec:
+      containers:
+        - name: {{ template "selenium.sessions.fullname" . }}
+          image: "{{ .Values.sessions.repository }}:{{ .Values.sessions.tag }}"
+          env:
+            - name: SE_EVENT_BUS_HOST
+              value: {{ include "selenium.event-bus.fullname" . | quote }}
+            - name: SE_EVENT_BUS_PUBLISH_PORT
+              value: "4442"
+            - name: SE_EVENT_BUS_SUBSCRIBE_PORT
+              value: "4443"
+          ports:
+            - containerPort: 5556
+              protocol: TCP

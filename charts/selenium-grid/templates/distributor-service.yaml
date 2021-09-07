@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ template "selenium.distributor.fullname" . }}
+  labels:
+    name: {{ template "selenium.distributor.fullname" . }}
+    component: {{ .Values.component }}
+spec:
+  selector:
+    app: {{ template "selenium.distributor.fullname" . }}
+  ports:
+    - name: port1
+      protocol: TCP
+      port: {{ .Values.distributor.servicePort }}
+      targetPort: {{ .Values.distributor.servicePort }}

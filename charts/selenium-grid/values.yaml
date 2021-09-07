@@ -17,6 +17,15 @@ chrome:
   tag: "4.0.0-rc-1-20210902"
   replicas: 1
 
+  # keda is able to scale chrome deployments according to length of grid queue size
+  # https://keda.sh
+  # https://keda.sh/docs/2.4/scalers/selenium-grid-scaler/
+  autoscaler:
+    enabled: false
+    minReplicaCount: 0
+    maxReplicaCount: 4
+
+
 distributor:
   repository: "selenium/distributor"
   tag: "4.0.0-rc-1-20210902"

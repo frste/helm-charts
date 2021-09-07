@@ -29,6 +29,22 @@ spec:
               value: "4442"
             - name: SE_EVENT_BUS_SUBSCRIBE_PORT
               value: "4443"
+            {{- if .Values.chrome.screenWidth }}
+            - name: SCREEN_WIDTH
+              value: {{ .Values.chrome.screenWidth }}
+            {{- end }}
+            {{- if .Values.chrome.screenHeight }}
+            - name: SCREEN_HEIGHT
+              value: {{ .Values.chrome.screenHeight }}
+            {{- end }}
+            {{- if .Values.chrome.screenDepth }}
+            - name: SCREEN_DEPTH
+              value: {{ .Values.chrome.screenDepth }}
+            {{- end }}
+            {{- if .Values.chrome.screenDpi }}
+            - name: SCREEN_DPI
+              value: {{ .Values.chrome.screenDpi }}
+            {{- end }}
           ports:
             - containerPort: 5553
               protocol: TCP

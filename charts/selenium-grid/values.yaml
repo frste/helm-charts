@@ -72,11 +72,12 @@ eventBus:
   # -- define the event bus port
   port: 5557
 
-
-
 sessions:
   repository: "selenium/sessions"
   tag: "4.0.0-rc-1-20210902"
+
+  # -- define the selenium sessions map port
+  mapPort: 5556
 
 sessionsQueue:
   repository: "selenium/session-queue"

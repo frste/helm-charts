@@ -29,6 +29,5 @@ spec:
             - name: SE_EVENT_BUS_SUBSCRIBE_PORT
               value: {{ .Values.eventBus.subscribePort | quote }}
           ports:
-              # use port value from values.yaml
-            - containerPort: 5556
+            - containerPort: {{ .Values.sessions.mapPort }}
               protocol: TCP

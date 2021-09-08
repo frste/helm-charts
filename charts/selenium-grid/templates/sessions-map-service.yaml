@@ -11,5 +11,5 @@ spec:
   ports:
     - name: port1
       protocol: TCP
-      port: 5556
-      targetPort: 5556
+      port: {{ .Values.sessions.mapPort }}
+      targetPort: {{ .Values.sessions.mapPort }}

@@ -35,10 +35,7 @@ $ helm install my-selenium-grid helm-selenium/selenium
 | eventBus.tag | string | `"4.0.0-rc-1-20210902"` |  |
 | router.loadBalancerSourceRanges | list | `[]` |  |
 | router.port | int | `4444` |  |
-| router.port1 | int | `4442` |  |
-| router.port2 | int | `4443` |  |
 | router.repository | string | `"selenium/router"` |  |
-| router.servicePort | int | `4444` |  |
 | router.serviceType | string | `"ClusterIP"` |  |
 | router.tag | string | `"4.0.0-rc-1-20210902"` |  |
 | sessions.repository | string | `"selenium/sessions"` |  |

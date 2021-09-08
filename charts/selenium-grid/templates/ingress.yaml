@@ -32,6 +32,7 @@ spec:
               service:
                 name: {{ $routerFullName }}
                 port:
-                  number: 4444
+                  # route port is named web and can be used here
+                  name: web
   {{- end }}
 {{- end }}

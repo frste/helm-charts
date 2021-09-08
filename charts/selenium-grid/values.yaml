@@ -5,11 +5,8 @@ router:
   tag: 4.0.0-rc-1-20210902
   serviceType: "ClusterIP"
   loadBalancerSourceRanges: []
+  # why not one port
   port: 4444
-  servicePort: 4444
-
-  port1: 4442
-  port2: 4443
 
   ingress:
     enabled: true

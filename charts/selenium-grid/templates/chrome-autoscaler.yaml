@@ -1,0 +1,18 @@
+{{- if .Values.chrome.autoscaler.enabled }}
+apiVersion: keda.sh/v1alpha1
+kind: ScaledObject
+metadata:
+  name: {{ template "selenium.chrome.fullname" . }}-scaledobject
+  labels:
+    deploymentName: {{ template "selenium.chrome.fullname" . }}-scaledobject
+spec:
+  minReplicaCount: {{ .Values.chrome.autoscaler.minReplicaCount }}
+  maxReplicaCount: {{ .Values.chrome.autoscaler.maxReplicaCount }}
+  scaleTargetRef:
+    name: {{ template "selenium.chrome.fullname" . }}
+  triggers:
+    - type: selenium-grid
+      metadata:
+        url: 'http://{{ template "selenium.router.fullname" . }}.{{ .Release.Namespace }}.svc.cluster.local:4444/graphql'
+        browserName: 'chrome'
+{{- end }}

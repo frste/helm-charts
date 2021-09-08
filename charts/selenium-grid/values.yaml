@@ -63,6 +63,17 @@ eventBus:
   repository: "selenium/event-bus"
   tag: "4.0.0-rc-1-20210902"
 
+  # -- define event bus publish port
+  publishPort: 4442
+
+  # -- define event bus subscribe port
+  subscribePort: 4443
+
+  # -- define the event bus port
+  port: 5557
+
+
+
 sessions:
   repository: "selenium/sessions"
   tag: "4.0.0-rc-1-20210902"

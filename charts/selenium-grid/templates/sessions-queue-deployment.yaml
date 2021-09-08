@@ -25,9 +25,9 @@ spec:
             - name: SE_EVENT_BUS_HOST
               value: {{ include "selenium.event-bus.fullname" . | quote }}
             - name: SE_EVENT_BUS_PUBLISH_PORT
-              value: "4442"
+              value: {{ .Values.eventBus.publishPort | quote }}
             - name: SE_EVENT_BUS_SUBSCRIBE_PORT
-              value: "4443"
+              value: {{ .Values.eventBus.subscribePort | quote }}
           ports:
               # use port value from values.yaml
             - containerPort: 5556

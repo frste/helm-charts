@@ -10,7 +10,7 @@ spec:
     app: {{ template "selenium.distributor.fullname" . }}
   ports:
       # use speaking port name here
-    - name: port1
+    - name: distributorport
       protocol: TCP
-      port: {{ .Values.distributor.servicePort }}
-      targetPort: {{ .Values.distributor.servicePort }}
+      port: {{ .Values.distributor.distributorPort }}
+      targetPort: {{ .Values.distributor.distributorPort }}

@@ -37,5 +37,5 @@ spec:
             - name: SE_SESSION_QUEUE_PORT
               value: {{ .Values.sessionsQueue.queuePort | quote }}
           ports:
-            - containerPort: {{ .Values.distributor.port }}
+            - containerPort: {{ .Values.distributor.distributorPort }}
               protocol: TCP

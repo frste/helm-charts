@@ -25,7 +25,7 @@ spec:
             - name: SE_DISTRIBUTOR_HOST
               value: {{ include "selenium.distributor.fullname" . | quote }}
             - name: SE_DISTRIBUTOR_PORT
-              value: "5553"
+              value: {{ .Values.distributor.distributorPort | quote }}
             - name: SE_SESSIONS_MAP_HOST
               value: {{ include "selenium.sessions.fullname" . | quote }}
             - name: SE_SESSIONS_MAP_PORT

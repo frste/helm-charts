@@ -46,6 +46,6 @@ spec:
               value: {{ .Values.chrome.screenDpi | quote }}
             {{- end }}
           ports:
-            - containerPort: 5553
+            - containerPort: {{ .Values.distributor.distributorPort }}
               protocol: TCP
 {{- end }}

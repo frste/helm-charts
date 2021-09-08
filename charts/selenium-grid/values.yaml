@@ -56,8 +56,9 @@ chrome:
 distributor:
   repository: "selenium/distributor"
   tag: "4.0.0-rc-1-20210902"
-  port: 5553
-  servicePort: 5553
+
+  # -- define distributor port
+  distributorPort: 5553
 
 eventBus:
   repository: "selenium/event-bus"

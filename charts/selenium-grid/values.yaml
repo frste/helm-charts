@@ -22,7 +22,7 @@ router:
 
 chrome:
   # -- Enable chrome node deployment
-  enabled: false
+  enabled: true
 
   # -- Chrome node repository
   repository: "selenium/node-chrome"

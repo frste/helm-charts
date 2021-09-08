@@ -31,19 +31,19 @@ spec:
               value: {{ .Values.eventBus.subscribePort | quote }}
             {{- if .Values.chrome.screenWidth }}
             - name: SCREEN_WIDTH
-              value: {{ .Values.chrome.screenWidth }}
+              value: {{ .Values.chrome.screenWidth | quote }}
             {{- end }}
             {{- if .Values.chrome.screenHeight }}
             - name: SCREEN_HEIGHT
-              value: {{ .Values.chrome.screenHeight }}
+              value: {{ .Values.chrome.screenHeight | quote }}
             {{- end }}
             {{- if .Values.chrome.screenDepth }}
             - name: SCREEN_DEPTH
-              value: {{ .Values.chrome.screenDepth }}
+              value: {{ .Values.chrome.screenDepth | quote }}
             {{- end }}
             {{- if .Values.chrome.screenDpi }}
             - name: SCREEN_DPI
-              value: {{ .Values.chrome.screenDpi }}
+              value: {{ .Values.chrome.screenDpi | quote }}
             {{- end }}
           ports:
             - containerPort: 5553

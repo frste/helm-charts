@@ -9,7 +9,6 @@ spec:
   selector:
     app: {{ template "selenium.distributor.fullname" . }}
   ports:
-      # use speaking port name here
     - name: distributorport
       protocol: TCP
       port: {{ .Values.distributor.distributorPort }}

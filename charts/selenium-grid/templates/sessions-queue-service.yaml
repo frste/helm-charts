@@ -9,7 +9,6 @@ spec:
   selector:
     app: {{ template "selenium.sessions-queue.fullname" . }}
   ports:
-      # use named ports and values port-definition
     - name: queueport
       protocol: TCP
       port: {{ .Values.sessionsQueue.queuePort }}

@@ -11,6 +11,18 @@ router:
   port1: 4442
   port2: 4443
 
+  ingress:
+    enabled: true
+    annotations:
+    ingressClassName: nginx
+    # tls:
+    # - hosts:
+    #     - selenium-grid.kube.home
+    #   secretName: tls-scret
+    hosts:
+      - selenium-grid.kube.home
+    path: /
+
 chrome:
   # -- Enable chrome node deployment
   enabled: false

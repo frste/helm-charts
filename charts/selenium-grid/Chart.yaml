@@ -1,5 +1,5 @@
 apiVersion: v2
-name: selenium-grid-4
+name: selenium-grid
 description: This is a selenium grid helm chart.
 
 # A chart can be either an 'application' or a 'library' chart.

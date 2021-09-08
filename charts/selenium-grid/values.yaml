@@ -12,16 +12,28 @@ router:
   port2: 4443
 
 chrome:
+  # -- Enable chrome node deployment
   enabled: false
+
+  # -- Chrome node repository
   repository: "selenium/node-chrome"
+
+  # -- Chrome node tag
   tag: "4.0.0-rc-1-20210902"
+
+  # -- Set chrome node replica count
   replicas: 1
 
   # Screen resolution, depth and dpi can be set via environment variables
   # https://github.com/SeleniumHQ/docker-selenium#setting-screen-resolution
+
+  # -- (int) Chrome node screen width configuration
   screenWidth: 1920
+  # -- (int) Chrome node screen heigth configuration
   screenHeight: 1080
+  # -- (int) Chrome node screen depth configuration
   screenDepth:
+  # -- (int) Chrome node screen dpi configuration
   screenDpi:
 
 distributor:

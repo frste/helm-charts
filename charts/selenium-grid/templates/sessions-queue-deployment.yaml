@@ -29,5 +29,6 @@ spec:
             - name: SE_EVENT_BUS_SUBSCRIBE_PORT
               value: "4443"
           ports:
+              # use port value from values.yaml
             - containerPort: 5556
               protocol: TCP

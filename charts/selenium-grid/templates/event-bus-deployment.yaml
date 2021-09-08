@@ -22,6 +22,7 @@ spec:
         - name: {{ template "selenium.event-bus.fullname" . }}
           image: "{{ .Values.eventBus.repository }}:{{ .Values.eventBus.tag }}"
           ports:
+              # define ports in values.yaml to reuse in service
             - containerPort: 4442
               protocol: TCP
             - containerPort: 4443

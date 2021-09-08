@@ -9,6 +9,7 @@ spec:
   selector:
     app: {{ template "selenium.event-bus.fullname" . }}
   ports:
+    # use named ports and port numbers from values.yaml
     - name: port1
       protocol: TCP
       port: 4442

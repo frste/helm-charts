@@ -11,9 +11,9 @@ spec:
     app: {{ template "selenium.chrome.fullname" . }}
   ports:
       # use speaking portname here
-    - name: port1
+    - name: vncport
       protocol: TCP
       # Service uses ports different and not defined in chrome-deployment.yaml - better define in values.yaml as default
-      port: 6900
-      targetPort: 5900
+      port: {{ .Values.chrome.vncPort }}
+      targetPort: {{ .Values.chrome.vncTargetPort }}
 {{- end }}

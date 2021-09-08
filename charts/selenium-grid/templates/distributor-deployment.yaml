@@ -35,7 +35,7 @@ spec:
             - name: SE_SESSION_QUEUE_HOST
               value: {{ include "selenium.sessions-queue.fullname" . | quote }}
             - name: SE_SESSION_QUEUE_PORT
-              value: "5559"
+              value: {{ .Values.sessions.queuePort | quote }}
           ports:
             - containerPort: {{ .Values.distributor.port }}
               protocol: TCP

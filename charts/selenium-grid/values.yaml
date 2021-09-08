@@ -17,6 +17,13 @@ chrome:
   tag: "4.0.0-rc-1-20210902"
   replicas: 1
 
+  # Screen resolution, depth and dpi can be set via environment variables
+  # https://github.com/SeleniumHQ/docker-selenium#setting-screen-resolution
+  screenWidth: 1920
+  screenHeight: 1080
+  screenDepth:
+  screenDpi:
+
 distributor:
   repository: "selenium/distributor"
   tag: "4.0.0-rc-1-20210902"

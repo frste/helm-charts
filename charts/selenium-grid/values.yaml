@@ -83,4 +83,5 @@ sessionsQueue:
   repository: "selenium/session-queue"
   tag: "4.0.0-rc-1-20210902"
 
+  # -- define the selenium sessions queue port
   queuePort: 5559

@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  selenium-grid:
+  - apiVersion: v2
+    appVersion: 4.0.0-rc-1-20210902
+    created: "2021-09-09T20:09:25.695294943Z"
+    description: This is a selenium grid helm chart.
+    digest: a7764c590b40f54f3ec76411028d419b7428562e141a93136b354d20eab618a0
+    name: selenium-grid
+    type: application
+    urls:
+    - https://github.com/frste/helm-charts/releases/download/selenium-grid-0.3.0/selenium-grid-0.3.0.tgz
+    version: 0.3.0
+generated: "2021-09-09T20:09:25.695300143Z"

@@ -10,8 +10,8 @@ spec:
   selector:
     app: {{ template "selenium.chrome.fullname" . }}
   ports:
-    - name: port1
+    - name: vncport
       protocol: TCP
-      port: 6900
-      targetPort: 5900
+      port: {{ .Values.chrome.vncPort }}
+      targetPort: {{ .Values.chrome.vncTargetPort }}
 {{- end }}

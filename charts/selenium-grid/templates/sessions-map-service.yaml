@@ -9,7 +9,7 @@ spec:
   selector:
     app: {{ template "selenium.sessions.fullname" . }}
   ports:
-    - name: port1
+    - name: mapport
       protocol: TCP
-      port: 5556
-      targetPort: 5556
+      port: {{ .Values.sessions.mapPort }}
+      targetPort: {{ .Values.sessions.mapPort }}

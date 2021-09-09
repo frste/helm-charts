@@ -26,26 +26,26 @@ spec:
             - name: SE_EVENT_BUS_HOST
               value: {{ include "selenium.event-bus.fullname" . | quote }}
             - name: SE_EVENT_BUS_PUBLISH_PORT
-              value: "4442"
+              value: {{ .Values.eventBus.publishPort | quote }}
             - name: SE_EVENT_BUS_SUBSCRIBE_PORT
-              value: "4443"
+              value: {{ .Values.eventBus.subscribePort | quote }}
             {{- if .Values.chrome.screenWidth }}
             - name: SCREEN_WIDTH
-              value: {{ .Values.chrome.screenWidth }}
+              value: {{ .Values.chrome.screenWidth | quote }}
             {{- end }}
             {{- if .Values.chrome.screenHeight }}
             - name: SCREEN_HEIGHT
-              value: {{ .Values.chrome.screenHeight }}
+              value: {{ .Values.chrome.screenHeight | quote }}
             {{- end }}
             {{- if .Values.chrome.screenDepth }}
             - name: SCREEN_DEPTH
-              value: {{ .Values.chrome.screenDepth }}
+              value: {{ .Values.chrome.screenDepth | quote }}
             {{- end }}
             {{- if .Values.chrome.screenDpi }}
             - name: SCREEN_DPI
-              value: {{ .Values.chrome.screenDpi }}
+              value: {{ .Values.chrome.screenDpi | quote }}
             {{- end }}
           ports:
-            - containerPort: 5553
+            - containerPort: {{ .Values.distributor.distributorPort }}
               protocol: TCP
 {{- end }}

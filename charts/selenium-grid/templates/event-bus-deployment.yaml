@@ -22,9 +22,9 @@ spec:
         - name: {{ template "selenium.event-bus.fullname" . }}
           image: "{{ .Values.eventBus.repository }}:{{ .Values.eventBus.tag }}"
           ports:
-            - containerPort: 4442
+            - containerPort: {{ .Values.eventBus.publishPort }}
               protocol: TCP
-            - containerPort: 4443
+            - containerPort: {{ .Values.eventBus.subscribePort }}
               protocol: TCP
-            - containerPort: 5557
+            - containerPort: {{ .Values.eventBus.port }}
               protocol: TCP

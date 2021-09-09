@@ -5,11 +5,11 @@ router:
   tag: 4.0.0-rc-1-20210902
   serviceType: "ClusterIP"
   loadBalancerSourceRanges: []
-  port: 4444
-  servicePort: 4444
 
-  port1: 4442
-  port2: 4443
+  # -- Define router service port
+  port: 4444
+  # -- Define router service port name
+  portName: web
 
   ingress:
     enabled: true
@@ -25,7 +25,7 @@ router:
 
 chrome:
   # -- Enable chrome node deployment
-  enabled: false
+  enabled: true
 
   # -- Chrome node repository
   repository: "selenium/node-chrome"
@@ -48,6 +48,12 @@ chrome:
   # -- (int) Chrome node screen dpi configuration
   screenDpi:
 
+  # -- Chrome node vnc port
+  vncPort: 6900
+
+  # -- Chrome node vnc target port
+  vncTargetPort: 5900
+
   # keda is able to scale chrome deployments according to length of grid queue size
   # https://keda.sh
   # https://keda.sh/docs/2.4/scalers/selenium-grid-scaler/
@@ -59,17 +65,33 @@ chrome:
 distributor:
   repository: "selenium/distributor"
   tag: "4.0.0-rc-1-20210902"
-  port: 5553
-  servicePort: 5553
+
+  # -- define distributor port
+  distributorPort: 5553
 
 eventBus:
   repository: "selenium/event-bus"
   tag: "4.0.0-rc-1-20210902"
 
+  # -- define event bus publish port
+  publishPort: 4442
+
+  # -- define event bus subscribe port
+  subscribePort: 4443
+
+  # -- define the event bus port
+  port: 5557
+
 sessions:
   repository: "selenium/sessions"
   tag: "4.0.0-rc-1-20210902"
 
+  # -- define the selenium sessions map port
+  mapPort: 5556
+
 sessionsQueue:
   repository: "selenium/session-queue"
   tag: "4.0.0-rc-1-20210902"
+
+  # -- define the selenium sessions queue port
+  queuePort: 5559

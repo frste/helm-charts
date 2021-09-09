@@ -25,17 +25,17 @@ spec:
             - name: SE_EVENT_BUS_HOST
               value: {{ include "selenium.event-bus.fullname" . | quote }}
             - name: SE_EVENT_BUS_PUBLISH_PORT
-              value: "4442"
+              value: {{ .Values.eventBus.publishPort | quote }}
             - name: SE_EVENT_BUS_SUBSCRIBE_PORT
-              value: "4443"
+              value: {{ .Values.eventBus.subscribePort | quote }}
             - name: SE_SESSIONS_MAP_HOST
               value: {{ include "selenium.sessions.fullname" . | quote }}
             - name: SE_SESSIONS_MAP_PORT
-              value: "5556"
+              value: {{ .Values.sessions.mapPort | quote }}
             - name: SE_SESSION_QUEUE_HOST
               value: {{ include "selenium.sessions-queue.fullname" . | quote }}
             - name: SE_SESSION_QUEUE_PORT
-              value: "5559"
+              value: {{ .Values.sessionsQueue.queuePort | quote }}
           ports:
-            - containerPort: {{ .Values.distributor.port }}
+            - containerPort: {{ .Values.distributor.distributorPort }}
               protocol: TCP

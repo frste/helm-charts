@@ -9,15 +9,15 @@ spec:
   selector:
     app: {{ template "selenium.event-bus.fullname" . }}
   ports:
-    - name: port1
+    - name: publishport
       protocol: TCP
-      port: 4442
-      targetPort: 4442
-    - name: port2
+      port: {{ .Values.eventBus.publishPort }}
+      targetPort: {{ .Values.eventBus.publishPort }}
+    - name: subscribeport
       protocol: TCP
-      port: 4443
-      targetPort: 4443
-    - name: port3
+      port: {{ .Values.eventBus.subscribePort }}
+      targetPort: {{ .Values.eventBus.subscribePort }}
+    - name: port
       protocol: TCP
-      port: 5557
-      targetPort: 5557
+      port: {{ .Values.eventBus.port }}
+      targetPort: {{ .Values.eventBus.port }}

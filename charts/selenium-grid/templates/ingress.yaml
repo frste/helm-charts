@@ -1,6 +1,7 @@
 {{- if .Values.router.ingress.enabled -}}
 {{- $ingressPath := .Values.router.ingress.path -}}
 {{- $routerFullName := include "selenium.router.fullname" . -}}
+{{- $routerPortName := .Values.router.portName -}}
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
@@ -32,6 +33,6 @@ spec:
               service:
                 name: {{ $routerFullName }}
                 port:
-                  number: 4444
+                  name: {{ $routerPortName }}
   {{- end }}
 {{- end }}

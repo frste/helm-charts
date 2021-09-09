@@ -46,7 +46,8 @@ $ helm install my-selenium-grid helm-selenium/selenium
 | router.ingress.ingressClassName | string | `"nginx"` |  |
 | router.ingress.path | string | `"/"` |  |
 | router.loadBalancerSourceRanges | list | `[]` |  |
-| router.port | int | `4444` |  |
+| router.port | int | `4444` | Define router service port |
+| router.portName | string | `"web"` | Define router service port name |
 | router.repository | string | `"selenium/router"` |  |
 | router.serviceType | string | `"ClusterIP"` |  |
 | router.tag | string | `"4.0.0-rc-1-20210902"` |  |

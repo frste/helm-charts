@@ -13,7 +13,7 @@ spec:
   selector:
     app: {{ template "selenium.router.fullname" . }}
   ports:
-    - name: web
+    - name: {{ .Values.router.portName }}
       protocol: TCP
       port: {{ .Values.router.port }}
       targetPort: {{ .Values.router.port }}

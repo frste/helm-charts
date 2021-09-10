@@ -37,3 +37,5 @@ spec:
           ports:
             - containerPort: {{ .Values.router.port }}
               protocol: TCP
+          resources:
+{{ toYaml .Values.router.resources | indent 12 }}

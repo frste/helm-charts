@@ -11,8 +11,48 @@ router:
   # -- Define router service port name
   portName: web
 
-  ingress:
+  startupProbe:
+    # -- Enable router startup probe
     enabled: true
+    # -- Configure router startup probe period
+    periodSeconds: 10
+    # -- Configure router startup probe timeout
+    failureThreshold: 30
+    # -- Configure router startup probe path
+    path:
+
+  readinessProbe:
+    # -- Enable router readiness probe
+    enabled: true
+    # -- Configure router readiness initial delay
+    initialDelaySeconds: 15
+    # -- Configure router readiness probe period
+    periodSeconds: 10
+    # -- Configure router readiness probe timeout
+    timeoutSeconds: 5
+    # -- Configure router readiness failure threshold
+    failureThreshold: 1
+    # -- Configure router readiness success threshold
+    successThreshold: 1
+    # -- Configure router readiness probe path
+
+  livenessProbe:
+    # -- Enable router liveness probe
+    enabled: true
+    # -- Configure router liveness initial delay
+    initialDelaySeconds: 15
+    # -- Configure router liveness probe period
+    periodSeconds: 10
+    # -- Configure router liveness probe timeout
+    timeoutSeconds: 5
+    # -- Configure router liveness probe failure threshold
+    failureThreshold: 3
+    # -- Configure router liveness probe success threshold
+    successThreshold: 1
+    # -- Configure router liveness probe path
+
+  ingress:
+    enabled: false
     annotations:
     ingressClassName: nginx
     # tls:

@@ -20,8 +20,42 @@ router:
   # -- Define router service port name
   portName: web
 
+  # -- Define router startup probe
+  startupProbe:
+    exec:
+      command:
+      - /bin/sh
+      - -c
+      - 'curl -sSL "http://localhost:4444/wd/hub/status" 2>&1 | jq -e ".value.ready"==true'
+    periodSeconds: 10
+    failureThreshold: 30
+
+  # -- Define router readiness probe
+  readinessProbe:
+    exec:
+      command:
+      - /bin/sh
+      - -c
+      - 'curl -sSL "http://localhost:4444/wd/hub/status" 2>&1 | jq -e ".value.ready"==true'
+    initialDelaySeconds: 15
+    periodSeconds: 10
+    timeoutSeconds: 5
+    failureThreshold: 1
+    successThreshold: 1
+
+  # -- Define router liveness probe
+  livenessProbe:
+    httpGet:
+      path: /
+      port: web
+    initialDelaySeconds: 15
+    periodSeconds: 10
+    timeoutSeconds: 5
+    failureThreshold: 3
+    successThreshold: 1
+
   ingress:
-    enabled: true
+    enabled: false
     # -- define custom annotations for ingress. Sample annotations are needed to use vnc with an nginx.org ingress
     annotations:
       # nginx.org/location-snippets: |

@@ -37,5 +37,13 @@ spec:
           ports:
             - containerPort: {{ .Values.router.port }}
               protocol: TCP
-          resources:
-{{ toYaml .Values.router.resources | nindent 12 }}
+          resources: {{ toYaml .Values.router.resources | nindent 12 }}
+          {{- with .Values.router.startupProbe }}
+          startupProbe: {{ toYaml . | nindent 12 }}
+          {{- end }}
+          {{- with .Values.router.readinessProbe }}
+          readinessProbe: {{ toYaml . | nindent 12 }}
+          {{- end }}
+          {{- with .Values.router.livenessProbe }}
+          livenessProbe: {{ toYaml . | nindent 12 }}
+          {{- end }}

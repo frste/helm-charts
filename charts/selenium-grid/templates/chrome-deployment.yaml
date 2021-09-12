@@ -56,6 +56,5 @@ spec:
           ports:
             - containerPort: {{ .Values.distributor.distributorPort }}
               protocol: TCP
-          resources:
-{{ toYaml .Values.chrome.resources | nindent 12 }}
+          resources: {{ toYaml .Values.chrome.resources | nindent 12 }}
 {{- end }}

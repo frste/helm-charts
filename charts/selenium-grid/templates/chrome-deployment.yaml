@@ -45,6 +45,14 @@ spec:
             - name: SCREEN_DPI
               value: {{ .Values.chrome.screenDpi | quote }}
             {{- end }}
+            {{- if .Values.chrome.vncNoPassword }}
+            - name: VNC_NO_PASSWORD
+              value: "1"
+            {{- end }}
+            {{- if .Values.chrome.seNodeGridUrl }}
+            - name: SE_NODE_GRID_URL
+              value: {{ .Values.chrome.seNodeGridUrl | quote }}
+            {{- end }}
           ports:
             - containerPort: {{ .Values.distributor.distributorPort }}
               protocol: TCP

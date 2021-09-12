@@ -13,7 +13,13 @@ router:
 
   ingress:
     enabled: true
+    # -- define custom annotations for ingress. Sample annotations are needed to use vnc with an nginx.org ingress
     annotations:
+      # nginx.org/location-snippets: |
+      #       proxy_set_header Upgrade $http_upgrade;
+      #       proxy_set_header Connection upgrade;
+      # nginx.org/proxy-connect-timeout: "3600"
+      # nginx.org/proxy-read-timeout: "3600"
     ingressClassName: nginx
     # tls:
     # - hosts:
@@ -49,10 +55,15 @@ chrome:
   screenDpi:
 
   # -- Chrome node vnc port
-  vncPort: 6900
-
+  vncPort: 5900
   # -- Chrome node vnc target port
   vncTargetPort: 5900
+
+  # -- VNC password can be disabled to enable vnc web view in grid
+  vncNoPassword: true
+
+  # -- Configure node grid url rewrite adress
+  seNodeGridUrl: http://selenium-grid.kube.home
 
   # keda is able to scale chrome deployments according to length of grid queue size
   # https://keda.sh

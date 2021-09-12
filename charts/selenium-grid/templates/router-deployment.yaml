@@ -39,3 +39,37 @@ spec:
               protocol: TCP
           resources:
 {{ toYaml .Values.router.resources | nindent 12 }}
+          {{- if .Values.router.startupProbe.enabled }}
+          startupProbe:
+            exec:
+              command:
+              - /bin/sh
+              - -c
+              - 'curl -sSL "http://localhost:4444/wd/hub/status" 2>&1 | jq -e ".value.ready"==true'
+            periodSeconds: {{ .Values.router.startupProbe.periodSeconds }}
+            failureThreshold: {{ .Values.router.startupProbe.failureThreshold }}
+          {{- end }}
+          {{- if .Values.router.readinessProbe.enabled }}
+          readinessProbe:
+            exec:
+              command:
+              - /bin/sh
+              - -c
+              - 'curl -sSL "http://localhost:4444/wd/hub/status" 2>&1 | jq -e ".value.ready"==true'
+            initialDelaySeconds: {{ .Values.router.readinessProbe.initialDelaySeconds }}
+            periodSeconds: {{ .Values.router.readinessProbe.periodSeconds }}
+            timeoutSeconds: {{ .Values.router.readinessProbe.timeoutSeconds }}
+            failureThreshold: {{ .Values.router.readinessProbe.failureThreshold }}
+            successThreshold: {{ .Values.router.readinessProbe.successThreshold }}
+          {{- end }}
+          {{- if .Values.router.livenessProbe.enabled }}
+          livenessProbe:
+            httpGet:
+              path: {{ .Values.router.livenessProbe.periodSeconds }}
+              port: {{ .Values.router.portName }}
+            initialDelaySeconds: {{ .Values.router.livenessProbe.initialDelaySeconds }}
+            periodSeconds: {{ .Values.router.livenessProbe.periodSeconds }}
+            timeoutSeconds: {{ .Values.router.livenessProbe.timeoutSeconds }}
+            failureThreshold: {{ .Values.router.livenessProbe.failureThreshold }}
+            successThreshold: {{ .Values.router.livenessProbe.successThreshold }}
+          {{- end }}

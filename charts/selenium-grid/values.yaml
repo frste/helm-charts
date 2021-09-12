@@ -6,6 +6,15 @@ router:
   serviceType: "ClusterIP"
   loadBalancerSourceRanges: []
 
+  # -- Configure router resource requests/limits
+  resources:
+    requests:
+      # memory: "512Mi"
+      # cpu: "0.5"
+    limits:
+      # memory: "1Gi"
+      # cpu: "1"
+
   # -- Define router service port
   port: 4444
   # -- Define router service port name
@@ -47,6 +56,15 @@ chrome:
   screenDepth:
   # -- (int) Chrome node screen dpi configuration
   screenDpi:
+
+  # -- Configure chrome node resource requests/limits
+  resources:
+    requests:
+      memory: "1Gi"
+      cpu: "1"
+    limits:
+      memory: "1Gi"
+      cpu: "1"
 
   # -- Chrome node vnc port
   vncPort: 6900

@@ -2,7 +2,7 @@ component: "selenium-grid-4"
 
 router:
   repository: selenium/router
-  tag: 4.0.0-rc-1-20210902
+  tag: 4.0.0-rc-2-prerelease-20210908
   serviceType: "ClusterIP"
   loadBalancerSourceRanges: []
 
@@ -80,7 +80,7 @@ chrome:
   repository: "selenium/node-chrome"
 
   # -- Chrome node tag
-  tag: "4.0.0-rc-1-20210902"
+  tag: "4.0.0-rc-2-prerelease-20210908"
 
   # -- Set chrome node replica count
   replicas: 1
@@ -127,14 +127,14 @@ chrome:
 
 distributor:
   repository: "selenium/distributor"
-  tag: "4.0.0-rc-1-20210902"
+  tag: "4.0.0-rc-2-prerelease-20210908"
 
   # -- define distributor port
   distributorPort: 5553
 
 eventBus:
   repository: "selenium/event-bus"
-  tag: "4.0.0-rc-1-20210902"
+  tag: "4.0.0-rc-2-prerelease-20210908"
 
   # -- define event bus publish port
   publishPort: 4442
@@ -147,14 +147,14 @@ eventBus:
 
 sessions:
   repository: "selenium/sessions"
-  tag: "4.0.0-rc-1-20210902"
+  tag: "4.0.0-rc-2-prerelease-20210908"
 
   # -- define the selenium sessions map port
   mapPort: 5556
 
 sessionsQueue:
   repository: "selenium/session-queue"
-  tag: "4.0.0-rc-1-20210902"
+  tag: "4.0.0-rc-2-prerelease-20210908"
 
   # -- define the selenium sessions queue port
   queuePort: 5559

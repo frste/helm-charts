@@ -13,7 +13,7 @@ helm-selenium` to see the charts.
 
 To install the selenium-grid chart:
 
-    helm install my-selenium-grid helm-selenium/selenium
+    helm install my-selenium-grid helm-selenium/selenium-grid
 
 To uninstall the chart:
 

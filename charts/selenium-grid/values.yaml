@@ -59,14 +59,14 @@ router:
     successThreshold: 1
 
   ingress:
-    enabled: true
+    enabled: false
     # -- define custom annotations for ingress. Sample annotations are needed to use vnc with an nginx.org ingress
     annotations:
-      nginx.org/location-snippets: |
-            proxy_set_header Upgrade $http_upgrade;
-            proxy_set_header Connection upgrade;
-      nginx.org/proxy-connect-timeout: "3600"
-      nginx.org/proxy-read-timeout: "3600"
+      # nginx.org/location-snippets: |
+      #       proxy_set_header Upgrade $http_upgrade;
+      #       proxy_set_header Connection upgrade;
+      # nginx.org/proxy-connect-timeout: "3600"
+      # nginx.org/proxy-read-timeout: "3600"
     ingressClassName: nginx
     # tls:
     # - hosts:

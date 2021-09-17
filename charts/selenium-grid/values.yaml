@@ -106,6 +106,16 @@ chrome:
       memory: "1Gi"
       cpu: "1"
 
+  # --  Configure chrome node volume mounts
+  volumeMounts:
+    - name: dshm
+      mountPath: /dev/shm
+
+  # --  Configure chrome node volume mounts
+  volumes:
+    - name: dshm
+      emptyDir: { "medium": "Memory" }
+
   # -- Chrome node vnc port
   vncPort: 5900
   # -- Chrome node vnc target port

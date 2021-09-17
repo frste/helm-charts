@@ -1,6 +1,10 @@
 component: "selenium-grid-4"
 
 router:
+
+  # -- Define router pod annotations
+  annotations:
+
   repository: selenium/router
   tag: 4.0.0-rc-2-prerelease-20210908
   serviceType: "ClusterIP"
@@ -55,14 +59,14 @@ router:
     successThreshold: 1
 
   ingress:
-    enabled: false
+    enabled: true
     # -- define custom annotations for ingress. Sample annotations are needed to use vnc with an nginx.org ingress
     annotations:
-      # nginx.org/location-snippets: |
-      #       proxy_set_header Upgrade $http_upgrade;
-      #       proxy_set_header Connection upgrade;
-      # nginx.org/proxy-connect-timeout: "3600"
-      # nginx.org/proxy-read-timeout: "3600"
+      nginx.org/location-snippets: |
+            proxy_set_header Upgrade $http_upgrade;
+            proxy_set_header Connection upgrade;
+      nginx.org/proxy-connect-timeout: "3600"
+      nginx.org/proxy-read-timeout: "3600"
     ingressClassName: nginx
     # tls:
     # - hosts:
@@ -75,6 +79,9 @@ router:
 chrome:
   # -- Enable chrome node deployment
   enabled: true
+
+  # -- Define chrome node pod annotations
+  annotations:
 
   # -- Chrome node repository
   repository: "selenium/node-chrome"
@@ -126,6 +133,10 @@ chrome:
     maxReplicaCount: 4
 
 distributor:
+
+  # -- Define distributor pod annotations
+  annotations:
+
   repository: "selenium/distributor"
   tag: "4.0.0-rc-2-prerelease-20210908"
 
@@ -133,6 +144,10 @@ distributor:
   distributorPort: 5553
 
 eventBus:
+
+  # -- Define event bus pod annotations
+  annotations:
+
   repository: "selenium/event-bus"
   tag: "4.0.0-rc-2-prerelease-20210908"
 
@@ -146,6 +161,10 @@ eventBus:
   port: 5557
 
 sessions:
+
+  # -- Define sessions pod annotations
+  annotations:
+
   repository: "selenium/sessions"
   tag: "4.0.0-rc-2-prerelease-20210908"
 
@@ -153,6 +172,10 @@ sessions:
   mapPort: 5556
 
 sessionsQueue:
+
+  # -- Define sessions-queue pod annotations
+  annotations:
+
   repository: "selenium/session-queue"
   tag: "4.0.0-rc-2-prerelease-20210908"
 

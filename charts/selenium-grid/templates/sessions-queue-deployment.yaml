@@ -17,6 +17,9 @@ spec:
         app: {{ template "selenium.sessions-queue.fullname" . }}
         name: {{ template "selenium.sessions-queue.fullname" . }}
         component: {{ .Values.component }}
+      {{- with .Values.sessionsQueue.annotations }}
+      annotations: {{ toYaml . | nindent 8 }}
+      {{- end }}
     spec:
       containers:
         - name: {{ template "selenium.sessions-queue.fullname" . }}

@@ -127,6 +127,10 @@ chrome:
   # -- Configure node grid url rewrite adress
   seNodeGridUrl: http://selenium-grid.kube.home
 
+  # -- Enable preStop to drain node directly on replica change
+  preStop:
+    enabled: true
+
   # keda is able to scale chrome deployments according to length of grid queue size
   # https://keda.sh
   # https://keda.sh/docs/2.4/scalers/selenium-grid-scaler/

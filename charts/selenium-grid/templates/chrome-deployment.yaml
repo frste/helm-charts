@@ -60,6 +60,17 @@ spec:
           volumeMounts: {{ toYaml . | nindent 12 }}
           {{- end }}
           resources: {{ toYaml .Values.chrome.resources | nindent 12 }}
+          {{- if .Values.chrome.preStop.enabled }}
+          lifecycle:
+            preStop:
+              exec:
+                command:
+                  - sh
+                  - -c
+                  - |
+                    NODEID=$(curl -sSl http://localhost:5555/status | jq -r .value.node.nodeId)
+                    curl --request POST http://{{ template "selenium.distributor.fullname" . }}.{{.Release.Namespace}}.svc.cluster.local:{{ .Values.distributor.distributorPort }}/se/grid/distributor/node/$NODEID/drain --header 'X-REGISTRATION-SECRET;'
+          {{- end }}
       {{- with .Values.chrome.volumes }}
       volumes: {{ toYaml . | nindent 6 }}
       {{- end }}

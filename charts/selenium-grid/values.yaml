@@ -121,7 +121,8 @@ chrome:
   # --  Configure chrome node volume mounts
   volumes:
     - name: dshm
-      emptyDir: { "medium": "Memory" }
+      emptyDir:
+        medium: Memory
 
   # -- Chrome node vnc port
   vncPort: 5900

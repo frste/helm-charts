@@ -17,6 +17,9 @@ spec:
         app: {{ template "selenium.event-bus.fullname" . }}
         name: {{ template "selenium.event-bus.fullname" . }}
         component: {{ .Values.component }}
+      {{- with .Values.eventBus.annotations }}
+      annotations: {{ toYaml . | nindent 8 }}
+      {{- end }}
     spec:
       containers:
         - name: {{ template "selenium.event-bus.fullname" . }}

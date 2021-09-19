@@ -16,4 +16,4 @@ spec:
     - name: {{ .Values.router.portName }}
       protocol: TCP
       port: {{ .Values.router.port }}
-      targetPort: {{ .Values.router.port }}
+      targetPort: {{ .Values.router.portName }}

@@ -39,6 +39,7 @@ spec:
               value: {{ .Values.sessionsQueue.queuePort | quote }}
           ports:
             - containerPort: {{ .Values.router.port }}
+              name: {{ .Values.router.portName }}
               protocol: TCP
           resources: {{ toYaml .Values.router.resources | nindent 12 }}
           {{- with .Values.router.startupProbe }}

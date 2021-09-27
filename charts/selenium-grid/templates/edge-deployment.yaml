@@ -1,0 +1,80 @@
+{{- if .Values.edge.enabled }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ template "selenium.edge.fullname" . }}
+  labels:
+    app: {{ template "selenium.edge.fullname" . }}
+    name: {{ template "selenium.edge.fullname" . }}
+    component: {{ .Values.component }}
+spec:
+  replicas: {{ .Values.edge.replicas }}
+  selector:
+    matchLabels:
+      app: {{ template "selenium.edge.fullname" . }}
+  template:
+    metadata:
+      labels:
+        app: {{ template "selenium.edge.fullname" . }}
+        name: {{ template "selenium.edge.fullname" . }}
+        component: {{ .Values.component }}
+      {{- with .Values.edge.annotations }}
+      annotations: {{ toYaml . | nindent 8 }}
+      {{- end }}
+    spec:
+      containers:
+        - name: {{ template "selenium.edge.fullname" . }}
+          image: "{{ .Values.edge.repository }}:{{ .Values.edge.tag }}"
+          env:
+            - name: SE_EVENT_BUS_HOST
+              value: {{ include "selenium.event-bus.fullname" . | quote }}
+            - name: SE_EVENT_BUS_PUBLISH_PORT
+              value: {{ .Values.eventBus.publishPort | quote }}
+            - name: SE_EVENT_BUS_SUBSCRIBE_PORT
+              value: {{ .Values.eventBus.subscribePort | quote }}
+            {{- if .Values.edge.screenWidth }}
+            - name: SCREEN_WIDTH
+              value: {{ .Values.edge.screenWidth | quote }}
+            {{- end }}
+            {{- if .Values.edge.screenHeight }}
+            - name: SCREEN_HEIGHT
+              value: {{ .Values.edge.screenHeight | quote }}
+            {{- end }}
+            {{- if .Values.edge.screenDepth }}
+            - name: SCREEN_DEPTH
+              value: {{ .Values.edge.screenDepth | quote }}
+            {{- end }}
+            {{- if .Values.edge.screenDpi }}
+            - name: SCREEN_DPI
+              value: {{ .Values.edge.screenDpi | quote }}
+            {{- end }}
+            {{- if .Values.edge.vncNoPassword }}
+            - name: VNC_NO_PASSWORD
+              value: "1"
+            {{- end }}
+            {{- if .Values.edge.seNodeGridUrl }}
+            - name: SE_NODE_GRID_URL
+              value: {{ .Values.edge.seNodeGridUrl | quote }}
+            {{- end }}
+          ports:
+            - containerPort: {{ .Values.distributor.distributorPort }}
+              protocol: TCP
+          {{- with .Values.edge.volumeMounts }}
+          volumeMounts: {{ toYaml . | nindent 12 }}
+          {{- end }}
+          resources: {{ toYaml .Values.edge.resources | nindent 12 }}
+          {{- if .Values.edge.preStop.enabled }}
+          lifecycle:
+            preStop:
+              exec:
+                command:
+                  - sh
+                  - -c
+                  - |
+                    NODEID=$(curl -sSl http://localhost:5555/status | jq -r .value.node.nodeId)
+                    curl --request POST http://{{ template "selenium.distributor.fullname" . }}.{{.Release.Namespace}}.svc.cluster.local:{{ .Values.distributor.distributorPort }}/se/grid/distributor/node/$NODEID/drain --header 'X-REGISTRATION-SECRET;'
+          {{- end }}
+      {{- with .Values.edge.volumes }}
+      volumes: {{ toYaml . | nindent 6 }}
+      {{- end }}
+{{- end }}

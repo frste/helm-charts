@@ -1,0 +1,18 @@
+{{- if .Values.edge.autoscaler.enabled }}
+apiVersion: keda.sh/v1alpha1
+kind: ScaledObject
+metadata:
+  name: {{ template "selenium.edge.fullname" . }}-scaledobject
+  labels:
+    deploymentName: {{ template "selenium.edge.fullname" . }}-scaledobject
+spec:
+  minReplicaCount: {{ .Values.edge.autoscaler.minReplicaCount }}
+  maxReplicaCount: {{ .Values.edge.autoscaler.maxReplicaCount }}
+  scaleTargetRef:
+    name: {{ template "selenium.edge.fullname" . }}
+  triggers:
+    - type: selenium-grid
+      metadata:
+        url: 'http://{{ template "selenium.router.fullname" . }}.{{ .Release.Namespace }}.svc.cluster.local:4444/graphql'
+        browserName: 'MicrosoftEdge'
+{{- end }}

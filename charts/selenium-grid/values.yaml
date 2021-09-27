@@ -153,6 +153,77 @@ chrome:
     minReplicaCount: 0
     maxReplicaCount: 4
 
+edge:
+  # -- Enable edge node deployment
+  enabled: true
+
+  # -- Define edge node pod annotations
+  annotations:
+
+  # -- Edge node repository
+  repository: "selenium/node-edge"
+
+  # -- Edge node tag
+  tag: "4.0.0-rc-2-prerelease-20210908"
+
+  # -- Set edge node replica count
+  replicas: 1
+
+  # Screen resolution, depth and dpi can be set via environment variables
+  # https://github.com/SeleniumHQ/docker-selenium#setting-screen-resolution
+
+  # -- (int) Edge node screen width configuration
+  screenWidth: 1920
+  # -- (int) Edge node screen heigth configuration
+  screenHeight: 1080
+  # -- (int) Edge node screen depth configuration
+  screenDepth:
+  # -- (int) Edge node screen dpi configuration
+  screenDpi:
+
+  # -- Configure Edge node resource requests/limits
+  resources:
+    requests:
+      memory: "1Gi"
+      cpu: "1"
+    limits:
+      memory: "1Gi"
+      cpu: "1"
+
+  # --  Configure edge node volume mounts
+  volumeMounts:
+    - name: dshm
+      mountPath: /dev/shm
+
+  # --  Configure edge node volume mounts
+  volumes:
+    - name: dshm
+      emptyDir:
+        medium: Memory
+
+  # -- Edge node vnc port
+  vncPort: 6901
+  # -- Edge node vnc target port
+  vncTargetPort: 5900
+
+  # -- VNC password can be disabled to enable vnc web view in grid
+  vncNoPassword: true
+
+  # -- Configure node grid url rewrite adress
+  seNodeGridUrl: http://selenium-grid.kube.home
+
+  # -- Enable preStop to drain node directly on replica change
+  preStop:
+    enabled: true
+
+  # keda is able to scale edge deployments according to length of grid queue size
+  # https://keda.sh
+  # https://keda.sh/docs/2.4/scalers/selenium-grid-scaler/
+  autoscaler:
+    enabled: false
+    minReplicaCount: 0
+    maxReplicaCount: 4
+
 distributor:
 
   # -- Define distributor pod annotations

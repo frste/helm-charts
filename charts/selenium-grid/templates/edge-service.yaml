@@ -1,0 +1,17 @@
+{{- if .Values.edge.enabled }}
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ template "selenium.edge.fullname" . }}
+  labels:
+    name: {{ template "selenium.edge.fullname" . }}
+    component: {{ .Values.component }}
+spec:
+  selector:
+    app: {{ template "selenium.edge.fullname" . }}
+  ports:
+    - name: vncport
+      protocol: TCP
+      port: {{ .Values.edge.vncPort }}
+      targetPort: {{ .Values.edge.vncTargetPort }}
+{{- end }}

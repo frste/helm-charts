@@ -2,7 +2,7 @@
 
 This is a selenium grid helm chart.
 
-![Version: 0.4.2](https://img.shields.io/badge/Version-0.4.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 4.0.0-rc-1-20210902](https://img.shields.io/badge/AppVersion-4.0.0--rc--1--20210902-informational?style=flat-square)
+![Version: 0.4.3](https://img.shields.io/badge/Version-0.4.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 4.0.0-rc-1-20210902](https://img.shields.io/badge/AppVersion-4.0.0--rc--1--20210902-informational?style=flat-square)
 
 ## Selenium grid helm chart installatio
 
@@ -43,6 +43,26 @@ $ helm install my-selenium-grid helm-selenium/selenium
 | distributor.distributorPort | int | `5553` | define distributor port |
 | distributor.repository | string | `"selenium/distributor"` |  |
 | distributor.tag | string | `"4.0.0-rc-2-prerelease-20210908"` |  |
+| edge.annotations | string | `nil` | Define edge node pod annotations |
+| edge.autoscaler.enabled | bool | `false` |  |
+| edge.autoscaler.maxReplicaCount | int | `4` |  |
+| edge.autoscaler.minReplicaCount | int | `0` |  |
+| edge.enabled | bool | `true` | Enable edge node deployment |
+| edge.preStop | object | `{"enabled":true}` | Enable preStop to drain node directly on replica change |
+| edge.replicas | int | `1` | Set edge node replica count |
+| edge.repository | string | `"selenium/node-edge"` | Edge node repository |
+| edge.resources | object | `{"limits":{"cpu":"1","memory":"1Gi"},"requests":{"cpu":"1","memory":"1Gi"}}` | Configure Edge node resource requests/limits |
+| edge.screenDepth | int | `nil` | Edge node screen depth configuration |
+| edge.screenDpi | int | `nil` | Edge node screen dpi configuration |
+| edge.screenHeight | int | `1080` | (int) Edge node screen heigth configuration |
+| edge.screenWidth | int | `1920` |  |
+| edge.seNodeGridUrl | string | `"http://selenium-grid.kube.home"` | Configure node grid url rewrite adress |
+| edge.tag | string | `"4.0.0-rc-2-prerelease-20210908"` | Edge node tag |
+| edge.vncNoPassword | bool | `true` | VNC password can be disabled to enable vnc web view in grid |
+| edge.vncPort | int | `6901` | Edge node vnc port |
+| edge.vncTargetPort | int | `5900` | Edge node vnc target port |
+| edge.volumeMounts | list | `[{"mountPath":"/dev/shm","name":"dshm"}]` | Configure edge node volume mounts |
+| edge.volumes | list | `[{"emptyDir":{"medium":"Memory"},"name":"dshm"}]` | Configure edge node volume mounts |
 | eventBus.annotations | string | `nil` | Define event bus pod annotations |
 | eventBus.port | int | `5557` | define the event bus port |
 | eventBus.publishPort | int | `4442` | define event bus publish port |

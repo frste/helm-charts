@@ -4,7 +4,7 @@ This is a selenium grid helm chart.
 
 ![Version: 0.4.3](https://img.shields.io/badge/Version-0.4.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 4.0.0-rc-1-20210902](https://img.shields.io/badge/AppVersion-4.0.0--rc--1--20210902-informational?style=flat-square)
 
-## Selenium grid helm chart installatio
+## Selenium grid helm chart installation
 
 To install the chart run the following commands:
 
@@ -13,6 +13,19 @@ $ helm repo add helm-selenium https://frste.github.io/helm-charts
 $ helm repo update
 $ helm install my-selenium-grid helm-selenium/selenium
 ```
+
+## General
+
+This Chart is based on the SeleniumHQ k8s deployment Manifest https://github.com/SeleniumHQ/docker-selenium/blob/trunk/k8s-deployment-full-grid.yaml.
+The base Manifest has been extended with different objects.
+
+## Ingress
+
+Using this Helm Chart it's possible to define an Ingress.
+
+## Scaling
+
+This Chart uses Keda Selenium Grid Scaler to scale the Node pods https://keda.sh/docs/2.4/scalers/selenium-grid-scaler/
 
 ## Values
 

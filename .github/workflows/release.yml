@@ -29,3 +29,11 @@ jobs:
         uses: helm/chart-releaser-action@v1.2.1
         env:
           CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+
+      - name: "Build Changelog"
+        uses: mikepenz/release-changelog-builder-action@{latest-release}
+        with:
+          configuration: "changelogconfig.json"
+          fromTag: "0.4.4"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

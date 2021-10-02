@@ -1,0 +1,14 @@
+{
+  "dependencies": {
+    "husky": "^7.0.2"
+  },
+  "devDependencies": {
+    "husky": "^7.0.0"
+  },
+  "scripts": {
+    "prepare": "husky install"
+  },
+  "scripts": {
+    "test": "cd charts/selenium-grid && helm lint"
+  }
+}

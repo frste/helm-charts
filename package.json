@@ -1,12 +1,8 @@
 {
-  "dependencies": {
-    "husky": "^7.0.2"
-  },
   "devDependencies": {
-    "husky": "^7.0.0"
-  },
-  "scripts": {
-    "prepare": "husky install"
+    "@commitlint/cli": "^13.2.0",
+    "@commitlint/config-conventional": "^13.2.0",
+    "husky": "^7.0.2"
   },
   "scripts": {
     "test": "cd charts/selenium-grid && helm lint"

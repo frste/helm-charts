@@ -167,7 +167,7 @@ edge:
   tag: "4.0.0-rc-2-20210930"
 
   # -- Set edge node replica count
-  replicas: 1
+  replicas: 0
 
   # Screen resolution, depth and dpi can be set via environment variables
   # https://github.com/SeleniumHQ/docker-selenium#setting-screen-resolution

@@ -6,7 +6,7 @@ router:
   annotations:
 
   repository: selenium/router
-  tag: 4.0.0-rc-2-prerelease-20210908
+  tag: 4.0.0-rc-2-20210930
   serviceType: "ClusterIP"
   loadBalancerSourceRanges: []
 
@@ -93,7 +93,7 @@ chrome:
   repository: "selenium/node-chrome"
 
   # -- Chrome node tag
-  tag: "4.0.0-rc-2-prerelease-20210908"
+  tag: "4.0.0-rc-2-20210930"
 
   # -- Set chrome node replica count
   replicas: 1
@@ -164,7 +164,7 @@ edge:
   repository: "selenium/node-edge"
 
   # -- Edge node tag
-  tag: "4.0.0-rc-2-prerelease-20210908"
+  tag: "4.0.0-rc-2-20210930"
 
   # -- Set edge node replica count
   replicas: 1
@@ -230,7 +230,7 @@ distributor:
   annotations:
 
   repository: "selenium/distributor"
-  tag: "4.0.0-rc-2-prerelease-20210908"
+  tag: "4.0.0-rc-2-20210930"
 
   # -- define distributor port
   distributorPort: 5553
@@ -241,7 +241,7 @@ eventBus:
   annotations:
 
   repository: "selenium/event-bus"
-  tag: "4.0.0-rc-2-prerelease-20210908"
+  tag: "4.0.0-rc-2-20210930"
 
   # -- define event bus publish port
   publishPort: 4442
@@ -258,7 +258,7 @@ sessions:
   annotations:
 
   repository: "selenium/sessions"
-  tag: "4.0.0-rc-2-prerelease-20210908"
+  tag: "4.0.0-rc-2-20210930"
 
   # -- define the selenium sessions map port
   mapPort: 5556
@@ -269,7 +269,7 @@ sessionsQueue:
   annotations:
 
   repository: "selenium/session-queue"
-  tag: "4.0.0-rc-2-prerelease-20210908"
+  tag: "4.0.0-rc-2-20210930"
 
   # -- define the selenium sessions queue port
   queuePort: 5559

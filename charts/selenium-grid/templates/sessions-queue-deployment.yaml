@@ -31,6 +31,14 @@ spec:
               value: {{ .Values.eventBus.publishPort | quote }}
             - name: SE_EVENT_BUS_SUBSCRIBE_PORT
               value: {{ .Values.eventBus.subscribePort | quote }}
+            {{- if .Values.sessionsQueue.requestTimeout }}
+            - name: SE_SESSION_REQUEST_TIMEOUT
+              value: {{ .Values.sessionsQueue.requestTimeout | quote }}
+            {{- end }}
+            {{- if .Values.sessionsQueue.retryInterval }}
+            - name: SE_SESSION_RETRY_INTERVAL
+              value: {{ .Values.sessionsQueue.retryInterval | quote }}
+            {{- end }}
           ports:
             - containerPort: {{ .Values.sessions.mapPort }}
               protocol: TCP

@@ -273,3 +273,11 @@ sessionsQueue:
 
   # -- define the selenium sessions queue port
   queuePort: 5559
+
+  # -- define a custom session request timeout
+  # -- @default 300
+  requestTimeout:
+
+  # -- define a custom session retry interval
+  # -- @default 5
+  retryInterval:

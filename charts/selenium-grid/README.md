@@ -2,7 +2,7 @@
 
 This is a selenium grid helm chart.
 
-![Version: 0.4.4](https://img.shields.io/badge/Version-0.4.4-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 4.0.0-rc-2-20210930](https://img.shields.io/badge/AppVersion-4.0.0--rc--2--20210930-informational?style=flat-square)
+![Version: 0.4.5](https://img.shields.io/badge/Version-0.4.5-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 4.0.0-rc-2-20210930](https://img.shields.io/badge/AppVersion-4.0.0--rc--2--20210930-informational?style=flat-square)
 
 ## Selenium grid helm chart installation
 
@@ -62,7 +62,7 @@ This Chart uses Keda Selenium Grid Scaler to scale the Node pods https://keda.sh
 | edge.autoscaler.minReplicaCount | int | `0` |  |
 | edge.enabled | bool | `true` | Enable edge node deployment |
 | edge.preStop | object | `{"enabled":true}` | Enable preStop to drain node directly on replica change |
-| edge.replicas | int | `1` | Set edge node replica count |
+| edge.replicas | int | `0` | Set edge node replica count |
 | edge.repository | string | `"selenium/node-edge"` | Edge node repository |
 | edge.resources | object | `{"limits":{"cpu":"1","memory":"1Gi"},"requests":{"cpu":"1","memory":"1Gi"}}` | Configure Edge node resource requests/limits |
 | edge.screenDepth | int | `nil` | Edge node screen depth configuration |
@@ -105,4 +105,6 @@ This Chart uses Keda Selenium Grid Scaler to scale the Node pods https://keda.sh
 | sessionsQueue.annotations | string | `nil` | Define sessions-queue pod annotations |
 | sessionsQueue.queuePort | int | `5559` | define the selenium sessions queue port |
 | sessionsQueue.repository | string | `"selenium/session-queue"` |  |
+| sessionsQueue.requestTimeout | string | `nil` | define a custom session request timeout -- @default 300 |
+| sessionsQueue.retryInterval | string | `nil` | define a custom session retry interval -- @default 5 |
 | sessionsQueue.tag | string | `"4.0.0-rc-2-20210930"` |  |

@@ -7,7 +7,6 @@ on:
 
 jobs:
   release:
-    if: contains(toJson(github.event.commits), '[release]') == true
     runs-on: ubuntu-latest
     steps:
       - name: Checkout

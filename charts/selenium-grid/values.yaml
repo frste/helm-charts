@@ -10,6 +10,12 @@ router:
   serviceType: "ClusterIP"
   loadBalancerSourceRanges: []
 
+  # -- Configure router SE_OPTS
+  seOpts:
+
+  # -- Configure router JAVA_OPTS
+  javaOpts:
+
   # -- Configure router resource requests/limits
   resources:
     requests:
@@ -98,6 +104,12 @@ chrome:
   # -- Set chrome node replica count
   replicas: 1
 
+  # -- Configure chrome SE_OPTS
+  seOpts:
+
+  # -- Configure chrome JAVA_OPTS
+  javaOpts:
+
   # Screen resolution, depth and dpi can be set via environment variables
   # https://github.com/SeleniumHQ/docker-selenium#setting-screen-resolution
 
@@ -168,6 +180,12 @@ edge:
 
   # -- Set edge node replica count
   replicas: 0
+
+  # -- Configure edge SE_OPTS
+  seOpts:
+
+  # -- Configure edge JAVA_OPTS
+  javaOpts:
 
   # Screen resolution, depth and dpi can be set via environment variables
   # https://github.com/SeleniumHQ/docker-selenium#setting-screen-resolution

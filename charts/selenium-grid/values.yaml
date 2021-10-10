@@ -250,6 +250,9 @@ distributor:
   repository: "selenium/distributor"
   tag: "4.0.0-rc-2-20210930"
 
+  # -- Configure distributor JAVA_OPTS
+  javaOpts:
+
   # -- define distributor port
   distributorPort: 5553
 
@@ -260,6 +263,9 @@ eventBus:
 
   repository: "selenium/event-bus"
   tag: "4.0.0-rc-2-20210930"
+
+  # -- Configure event bus JAVA_OPTS
+  javaOpts:
 
   # -- define event bus publish port
   publishPort: 4442
@@ -278,6 +284,9 @@ sessions:
   repository: "selenium/sessions"
   tag: "4.0.0-rc-2-20210930"
 
+  # -- Configure sessions map JAVA_OPTS
+  javaOpts:
+
   # -- define the selenium sessions map port
   mapPort: 5556
 
@@ -288,6 +297,9 @@ sessionsQueue:
 
   repository: "selenium/session-queue"
   tag: "4.0.0-rc-2-20210930"
+
+  # -- Configure sessions queue JAVA_OPTS
+  javaOpts:
 
   # -- define the selenium sessions queue port
   queuePort: 5559

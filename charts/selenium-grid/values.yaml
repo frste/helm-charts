@@ -167,7 +167,7 @@ chrome:
 
 edge:
   # -- Enable edge node deployment
-  enabled: true
+  enabled: false
 
   # -- Define edge node pod annotations
   annotations:
@@ -179,7 +179,7 @@ edge:
   tag: "4.0.0-rc-3-20211010"
 
   # -- Set edge node replica count
-  replicas: 0
+  replicas: 1
 
   # -- Configure edge SE_OPTS
   seOpts:

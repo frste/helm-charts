@@ -110,6 +110,10 @@ chrome:
   # -- Configure chrome JAVA_OPTS
   javaOpts:
 
+  # -- Configure chrome SE_NODE_SESSION_TIMEOUT
+  # @default -- 300
+  seNodeSessionTimeout:
+
   # Screen resolution, depth and dpi can be set via environment variables
   # https://github.com/SeleniumHQ/docker-selenium#setting-screen-resolution
 
@@ -186,6 +190,10 @@ edge:
 
   # -- Configure edge JAVA_OPTS
   javaOpts:
+
+  # -- (int) Configure edge SE_NODE_SESSION_TIMEOUT
+  # @default -- 300
+  seNodeSessionTimeout:
 
   # Screen resolution, depth and dpi can be set via environment variables
   # https://github.com/SeleniumHQ/docker-selenium#setting-screen-resolution
@@ -305,9 +313,9 @@ sessionsQueue:
   queuePort: 5559
 
   # -- define a custom session request timeout
-  # -- @default 300
+  # @default -- 300
   requestTimeout:
 
   # -- define a custom session retry interval
-  # -- @default 5
+  # @default -- 5
   retryInterval:

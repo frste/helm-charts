@@ -3,6 +3,19 @@ entries:
   selenium-grid:
   - apiVersion: v2
     appVersion: 4.0.0-rc-3-20211010
+    created: "2021-10-10T18:40:12.834987058Z"
+    description: This is a selenium grid helm chart.
+    digest: 62c7a6f343bb911b1ac0096b443da3b6f47a4c61721bb8005019dfc70b2e2dfa
+    maintainers:
+    - name: frste
+      url: https://github.com/frste
+    name: selenium-grid
+    type: application
+    urls:
+    - https://github.com/frste/helm-charts/releases/download/selenium-grid-0.4.8/selenium-grid-0.4.8.tgz
+    version: 0.4.8
+  - apiVersion: v2
+    appVersion: 4.0.0-rc-3-20211010
     created: "2021-10-10T10:56:19.77794333Z"
     description: This is a selenium grid helm chart.
     digest: e0ecbf844f27d8032ce44d2d32c736eda8ad89674a4f399d2fb368f84ce08794
@@ -86,4 +99,4 @@ entries:
     urls:
     - https://github.com/frste/helm-charts/releases/download/selenium-grid-0.3.0/selenium-grid-0.3.0.tgz
     version: 0.3.0
-generated: "2021-10-10T10:56:19.777972832Z"
+generated: "2021-10-10T18:40:12.835022859Z"

@@ -2,7 +2,7 @@
 
 This is a selenium grid helm chart.
 
-![Version: 0.4.7](https://img.shields.io/badge/Version-0.4.7-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 4.0.0-rc-3-20211010](https://img.shields.io/badge/AppVersion-4.0.0--rc--3--20211010-informational?style=flat-square)
+![Version: 0.4.8](https://img.shields.io/badge/Version-0.4.8-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 4.0.0-rc-3-20211010](https://img.shields.io/badge/AppVersion-4.0.0--rc--3--20211010-informational?style=flat-square)
 
 ## Selenium grid helm chart installation
 
@@ -46,6 +46,7 @@ This Chart uses Keda Selenium Grid Scaler to scale the Node pods https://keda.sh
 | chrome.screenHeight | int | `1080` | (int) Chrome node screen heigth configuration |
 | chrome.screenWidth | int | `1920` |  |
 | chrome.seNodeGridUrl | string | `"http://selenium-grid.kube.home"` | Configure node grid url rewrite adress |
+| chrome.seNodeSessionTimeout | string | `nil` | Configure chrome SE_NODE_SESSION_TIMEOUT |
 | chrome.seOpts | string | `nil` | Configure chrome SE_OPTS |
 | chrome.tag | string | `"4.0.0-rc-3-20211010"` | Chrome node tag |
 | chrome.vncNoPassword | bool | `true` | VNC password can be disabled to enable vnc web view in grid |
@@ -74,6 +75,7 @@ This Chart uses Keda Selenium Grid Scaler to scale the Node pods https://keda.sh
 | edge.screenHeight | int | `1080` | (int) Edge node screen heigth configuration |
 | edge.screenWidth | int | `1920` |  |
 | edge.seNodeGridUrl | string | `"http://selenium-grid.kube.home"` | Configure node grid url rewrite adress |
+| edge.seNodeSessionTimeout | int | `nil` | Configure edge SE_NODE_SESSION_TIMEOUT |
 | edge.seOpts | string | `nil` | Configure edge SE_OPTS |
 | edge.tag | string | `"4.0.0-rc-3-20211010"` | Edge node tag |
 | edge.vncNoPassword | bool | `true` | VNC password can be disabled to enable vnc web view in grid |
@@ -115,6 +117,6 @@ This Chart uses Keda Selenium Grid Scaler to scale the Node pods https://keda.sh
 | sessionsQueue.javaOpts | string | `nil` | Configure sessions queue JAVA_OPTS |
 | sessionsQueue.queuePort | int | `5559` | define the selenium sessions queue port |
 | sessionsQueue.repository | string | `"selenium/session-queue"` |  |
-| sessionsQueue.requestTimeout | string | `nil` | define a custom session request timeout -- @default 300 |
-| sessionsQueue.retryInterval | string | `nil` | define a custom session retry interval -- @default 5 |
+| sessionsQueue.requestTimeout | string | `nil` | define a custom session request timeout |
+| sessionsQueue.retryInterval | string | `nil` | define a custom session retry interval |
 | sessionsQueue.tag | string | `"4.0.0-rc-3-20211010"` |  |

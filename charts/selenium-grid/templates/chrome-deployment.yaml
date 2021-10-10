@@ -30,6 +30,10 @@ spec:
               value: {{ .Values.chrome.seOpts | default "" | quote }}
             - name: JAVA_OPTS
               value: {{ .Values.chrome.javaOpts | default "" | quote }}
+            {{- if .Values.chrome.seNodeSessionTimeout }}
+            - name: SE_NODE_SESSION_TIMEOUT
+              value: {{ .Values.chrome.seNodeSessionTimeout | quote }}
+            {{- end }}
             - name: SE_EVENT_BUS_HOST
               value: {{ include "selenium.event-bus.fullname" . | quote }}
             - name: SE_EVENT_BUS_PUBLISH_PORT

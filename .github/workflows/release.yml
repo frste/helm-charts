@@ -23,12 +23,7 @@ jobs:
         uses: azure/setup-helm@v1
         with:
           version: v3.4.0
-
-      - name: Run chart-releaser
-        uses: helm/chart-releaser-action@v1.2.1
-        env:
-          CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-
+          
       - name: "Build Changelog"
         uses: mikepenz/release-changelog-builder-action@v2.4.2
         with:
@@ -36,3 +31,8 @@ jobs:
           fromTag: "selenium-grid-0.4.2"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Run chart-releaser
+        uses: helm/chart-releaser-action@v1.2.1
+        env:
+          CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"

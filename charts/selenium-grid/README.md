@@ -63,10 +63,10 @@ This Chart uses Keda Selenium Grid Scaler to scale the Node pods https://keda.sh
 | edge.autoscaler.enabled | bool | `false` |  |
 | edge.autoscaler.maxReplicaCount | int | `4` |  |
 | edge.autoscaler.minReplicaCount | int | `0` |  |
-| edge.enabled | bool | `true` | Enable edge node deployment |
+| edge.enabled | bool | `false` | Enable edge node deployment |
 | edge.javaOpts | string | `nil` | Configure edge JAVA_OPTS |
 | edge.preStop | object | `{"enabled":true}` | Enable preStop to drain node directly on replica change |
-| edge.replicas | int | `0` | Set edge node replica count |
+| edge.replicas | int | `1` | Set edge node replica count |
 | edge.repository | string | `"selenium/node-edge"` | Edge node repository |
 | edge.resources | object | `{"limits":{"cpu":"1","memory":"1Gi"},"requests":{"cpu":"1","memory":"1Gi"}}` | Configure Edge node resource requests/limits |
 | edge.screenDepth | int | `nil` | Edge node screen depth configuration |

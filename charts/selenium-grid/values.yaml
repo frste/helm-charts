@@ -6,7 +6,7 @@ router:
   annotations:
 
   repository: selenium/router
-  tag: 4.0.0-rc-2-20210930
+  tag: 4.0.0-rc-3-20211010
   serviceType: "ClusterIP"
   loadBalancerSourceRanges: []
 
@@ -99,7 +99,7 @@ chrome:
   repository: "selenium/node-chrome"
 
   # -- Chrome node tag
-  tag: "4.0.0-rc-2-20210930"
+  tag: "4.0.0-rc-3-20211010"
 
   # -- Set chrome node replica count
   replicas: 1
@@ -167,7 +167,7 @@ chrome:
 
 edge:
   # -- Enable edge node deployment
-  enabled: true
+  enabled: false
 
   # -- Define edge node pod annotations
   annotations:
@@ -176,10 +176,10 @@ edge:
   repository: "selenium/node-edge"
 
   # -- Edge node tag
-  tag: "4.0.0-rc-2-20210930"
+  tag: "4.0.0-rc-3-20211010"
 
   # -- Set edge node replica count
-  replicas: 0
+  replicas: 1
 
   # -- Configure edge SE_OPTS
   seOpts:
@@ -248,7 +248,7 @@ distributor:
   annotations:
 
   repository: "selenium/distributor"
-  tag: "4.0.0-rc-2-20210930"
+  tag: "4.0.0-rc-3-20211010"
 
   # -- Configure distributor JAVA_OPTS
   javaOpts:
@@ -262,7 +262,7 @@ eventBus:
   annotations:
 
   repository: "selenium/event-bus"
-  tag: "4.0.0-rc-2-20210930"
+  tag: "4.0.0-rc-3-20211010"
 
   # -- Configure event bus JAVA_OPTS
   javaOpts:
@@ -282,7 +282,7 @@ sessions:
   annotations:
 
   repository: "selenium/sessions"
-  tag: "4.0.0-rc-2-20210930"
+  tag: "4.0.0-rc-3-20211010"
 
   # -- Configure sessions map JAVA_OPTS
   javaOpts:
@@ -296,7 +296,7 @@ sessionsQueue:
   annotations:
 
   repository: "selenium/session-queue"
-  tag: "4.0.0-rc-2-20210930"
+  tag: "4.0.0-rc-3-20211010"
 
   # -- Configure sessions queue JAVA_OPTS
   javaOpts:

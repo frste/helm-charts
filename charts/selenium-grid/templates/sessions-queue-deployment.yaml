@@ -25,6 +25,8 @@ spec:
         - name: {{ template "selenium.sessions-queue.fullname" . }}
           image: "{{ .Values.sessionsQueue.repository }}:{{ .Values.sessionsQueue.tag }}"
           env:
+            - name: JAVA_OPTS
+              value: {{ .Values.sessionsQueue.javaOpts | default "" | quote }}
             - name: SE_EVENT_BUS_HOST
               value: {{ include "selenium.event-bus.fullname" . | quote }}
             - name: SE_EVENT_BUS_PUBLISH_PORT

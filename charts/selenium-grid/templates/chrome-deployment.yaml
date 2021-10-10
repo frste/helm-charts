@@ -26,6 +26,10 @@ spec:
         - name: {{ template "selenium.chrome.fullname" . }}
           image: "{{ .Values.chrome.repository }}:{{ .Values.chrome.tag }}"
           env:
+            - name: SE_OPTS
+              value: {{ .Values.chrome.seOpts | default "" | quote }}
+            - name: JAVA_OPTS
+              value: {{ .Values.chrome.javaOpts | default "" | quote }}
             - name: SE_EVENT_BUS_HOST
               value: {{ include "selenium.event-bus.fullname" . | quote }}
             - name: SE_EVENT_BUS_PUBLISH_PORT

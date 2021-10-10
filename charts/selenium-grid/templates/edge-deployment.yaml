@@ -26,6 +26,10 @@ spec:
         - name: {{ template "selenium.edge.fullname" . }}
           image: "{{ .Values.edge.repository }}:{{ .Values.edge.tag }}"
           env:
+            - name: SE_OPTS
+              value: {{ .Values.edge.seOpts | default "" | quote }}
+            - name: JAVA_OPTS
+              value: {{ .Values.edge.javaOpts | default "" | quote }}
             - name: SE_EVENT_BUS_HOST
               value: {{ include "selenium.event-bus.fullname" . | quote }}
             - name: SE_EVENT_BUS_PUBLISH_PORT

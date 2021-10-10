@@ -10,6 +10,12 @@ router:
   serviceType: "ClusterIP"
   loadBalancerSourceRanges: []
 
+  # -- Configure router SE_OPTS
+  seOpts:
+
+  # -- Configure router JAVA_OPTS
+  javaOpts:
+
   # -- Configure router resource requests/limits
   resources:
     requests:
@@ -98,6 +104,12 @@ chrome:
   # -- Set chrome node replica count
   replicas: 1
 
+  # -- Configure chrome SE_OPTS
+  seOpts:
+
+  # -- Configure chrome JAVA_OPTS
+  javaOpts:
+
   # Screen resolution, depth and dpi can be set via environment variables
   # https://github.com/SeleniumHQ/docker-selenium#setting-screen-resolution
 
@@ -169,6 +181,12 @@ edge:
   # -- Set edge node replica count
   replicas: 0
 
+  # -- Configure edge SE_OPTS
+  seOpts:
+
+  # -- Configure edge JAVA_OPTS
+  javaOpts:
+
   # Screen resolution, depth and dpi can be set via environment variables
   # https://github.com/SeleniumHQ/docker-selenium#setting-screen-resolution
 
@@ -232,6 +250,9 @@ distributor:
   repository: "selenium/distributor"
   tag: "4.0.0-rc-2-20210930"
 
+  # -- Configure distributor JAVA_OPTS
+  javaOpts:
+
   # -- define distributor port
   distributorPort: 5553
 
@@ -242,6 +263,9 @@ eventBus:
 
   repository: "selenium/event-bus"
   tag: "4.0.0-rc-2-20210930"
+
+  # -- Configure event bus JAVA_OPTS
+  javaOpts:
 
   # -- define event bus publish port
   publishPort: 4442
@@ -260,6 +284,9 @@ sessions:
   repository: "selenium/sessions"
   tag: "4.0.0-rc-2-20210930"
 
+  # -- Configure sessions map JAVA_OPTS
+  javaOpts:
+
   # -- define the selenium sessions map port
   mapPort: 5556
 
@@ -270,6 +297,9 @@ sessionsQueue:
 
   repository: "selenium/session-queue"
   tag: "4.0.0-rc-2-20210930"
+
+  # -- Configure sessions queue JAVA_OPTS
+  javaOpts:
 
   # -- define the selenium sessions queue port
   queuePort: 5559

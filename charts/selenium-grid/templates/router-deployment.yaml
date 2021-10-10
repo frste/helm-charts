@@ -25,6 +25,10 @@ spec:
         - name: {{ template "selenium.router.fullname" . }}
           image: "{{ .Values.router.repository }}:{{ .Values.router.tag }}"
           env:
+            - name: SE_OPTS
+              value: {{ .Values.router.seOpts | default "" | quote }}
+            - name: JAVA_OPTS
+              value: {{ .Values.router.javaOpts | default "" | quote }}
             - name: SE_DISTRIBUTOR_HOST
               value: {{ include "selenium.distributor.fullname" . | quote }}
             - name: SE_DISTRIBUTOR_PORT

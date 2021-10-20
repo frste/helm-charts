@@ -79,9 +79,11 @@ spec:
                   - sh
                   - -c
                   - |
-                    NODEID=$(curl -sSl http://localhost:5555/status | jq -r .value.node.nodeId)
-                    curl --request POST http://{{ template "selenium.distributor.fullname" . }}.{{.Release.Namespace}}.svc.cluster.local:{{ .Values.distributor.distributorPort }}/se/grid/distributor/node/$NODEID/drain --header 'X-REGISTRATION-SECRET;'
+                    NODEID=$(curl -sSl "http://localhost:5555/status" | jq -r .value.node.nodeId)
+                    curl --request POST http://{{ template "selenium.distributor.fullname" . }}.{{.Release.Namespace}}.svc.cluster.local:{{ .Values.distributor.distributorPort }}/se/grid/distributor/node/$NODEID/drain --header "X-REGISTRATION-SECRET;"  > /dev/null
+                    while curl -sSL "http://localhost:5555/status" | jq -e ".value.node.slots[0].session" > /dev/null; do echo "Wait for session shutdown" > /proc/1/fd/1; sleep 1; done;
           {{- end }}
+      terminationGracePeriodSeconds: {{ .Values.chrome.terminationGracePeriodSeconds }}
       {{- with .Values.chrome.volumes }}
       volumes: {{ toYaml . | nindent 6 }}
       {{- end }}

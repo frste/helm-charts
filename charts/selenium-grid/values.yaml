@@ -161,6 +161,9 @@ chrome:
   preStop:
     enabled: true
 
+  # -- Configure chrome node's terminationGracePeriodSeconds value
+  terminationGracePeriodSeconds: 30
+
   # keda is able to scale chrome deployments according to length of grid queue size
   # https://keda.sh
   # https://keda.sh/docs/2.4/scalers/selenium-grid-scaler/
@@ -241,6 +244,9 @@ edge:
   # -- Enable preStop to drain node directly on replica change
   preStop:
     enabled: true
+
+  # -- Configure edge node's terminationGracePeriodSeconds value
+  terminationGracePeriodSeconds: 30
 
   # keda is able to scale edge deployments according to length of grid queue size
   # https://keda.sh
